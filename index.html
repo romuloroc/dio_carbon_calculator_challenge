@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Emissão de CO₂</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <img id="loading-image" src="" alt="Carregando">
+            <p>Calculando...</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="greeting">
+            <h1><img class="image-title" src="images/terra-verde.gif" alt="">Calculadora de Emissão de CO₂</h1>
+            <p>Ben-vindo a nossa calculadora de Emissão de CO₂</p>
+        </div>
+        
+        <div class="card">
+            <div class="form-group">
+                <label for="origem">Local de Origem</label>
+                <input type="text" id="origem" list="capitais" placeholder="Ex: São Paulo" onchange="verificarOrigemDestino()">
+                <datalist id="capitais">
+                    <option value="São Paulo"></option>
+                    <option value="Rio de Janeiro"></option>
+                    <option value="Brasília"></option>
+                    <option value="Salvador"></option>
+                    <option value="Fortaleza"></option>
+                    <option value="Belo Horizonte"></option>
+                    <option value="Manaus"></option>
+                    <option value="Recife"></option>
+                    <option value="Porto Alegre"></option>
+                    <option value="Curitiba"></option>
+                </datalist>
+            </div>
+            
+            <div class="form-group">
+                <label for="destino">Local de Destino</label>
+                <input type="text" id="destino" list="capitais" placeholder="Ex: Rio de Janeiro" onchange="verificarOrigemDestino()">
+            </div>
+            
+            <div class="form-group">
+                <label for="distancia">Distância (km)</label>
+                <input type="number" id="distancia" placeholder="0" min="0" disabled>
+                <small id="distancia-info" class="distancia-info-hidden">Rota não encontrada. Digite uma distância manualmente.</small>
+            </div>
+            
+            <div class="form-group">
+                <label>Meio de Transporte</label>
+                <div class="transport-options">
+                    <input type="radio" id="bicicleta" name="transporte" value="bicicleta">
+                    <label for="bicicleta" class="transport-label">
+                        <img src="images/bicicleta.png" alt="Bicicleta">
+                        <span>Bicicleta</span>
+                    </label>
+                    
+                    <input type="radio" id="carro_eletrico" name="transporte" value="carro_eletrico">
+                    <label for="carro_eletrico" class="transport-label">
+                        <img src="images/carro_eletrico.png" alt="Carro Elétrico">
+                        <span>Carro Elétrico</span>
+                    </label>
+
+                    <input type="radio" id="carro" name="transporte" value="carro">
+                    <label for="carro" class="transport-label">
+                        <img src="images/carro.png" alt="Carro">
+                        <span>Carro</span>
+                    </label>                    
+                    
+                    <input type="radio" id="onibus" name="transporte" value="onibus">
+                    <label for="onibus" class="transport-label">
+                        <img src="images/onibus.png" alt="Ônibus">
+                        <span>Ônibus</span>
+                    </label>
+                    
+                    <input type="radio" id="caminhao" name="transporte" value="caminhao">
+                    <label for="caminhao" class="transport-label">
+                        <img src="images/caminhao.png" alt="Caminhão">
+                        <span>Caminhão</span>
+                    </label>
+                </div>
+            </div>
+            
+            <button class="calculate-btn" onclick="calcularEmissao()">Calcular</button>
+            
+            <div class="form-group">
+                <div id="resultado"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Desenvolvido com ❤️ para DIO / Projeto GitHub Copilot do Romulo Cardoso</p>
+        <p>Desafio GitHub Copilot da DIO - Digital Innovation One</p>
+    </footer>
+    
+    <script src="script/config.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>
